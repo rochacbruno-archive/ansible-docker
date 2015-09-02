@@ -7,6 +7,6 @@ WORKDIR /
 # The "-c local" argument causes Ansible to use a "local connection" that won't attempt to
 # ssh in to localhost.
 RUN ansible-playbook /playbooks/site.yml -c local
-EXPOSE 443
+EXPOSE 5000
 ENTRYPOINT ["/app/manage.py"]
-CMD ["runserver", "--port 5500", "--host 0.0.0.0",  "--reloader", "--debug"]
+CMD ["runserver", "--port 5000", "--host 0.0.0.0",  "--reloader", "--debug"]
