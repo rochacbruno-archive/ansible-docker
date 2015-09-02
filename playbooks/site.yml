@@ -1,1 +1,37 @@
-
+---
+- hosts: all
+  sudo true
+  tasks:
+    - name: download get-pip
+      get_url: url=https://bootstrap.pypa.io/get-pip.py dest=/tmp/get-pip.py
+    - name: install pip
+      command: python /tmp/get-pip.py
+    - name: install apt dependencies
+      apt: 
+        pkg={{item}} 
+        state=installed
+      with_items:
+        - git-core
+        - python-dev
+        - mongodb-server
+        - build-essential
+        - python-imaging
+        - lbxml2-dev
+        - libjpeg-dev
+        - make
+    #- name: Create app directory
+    #  file: 
+    #    path=/app state
+    #    state=directory
+    #    mode=0777
+    - name: Clone repository
+      git:
+        repo=git://github.com/quokkaproject/quokka.git
+        dest=/app
+    - name: Run tests
+      command: make test
+        chdir: /app
+    - name: Populate
+      command: python manage.py populate
+        chdir: /app
+    
