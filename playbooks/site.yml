@@ -10,13 +10,14 @@
       apt: 
         pkg={{item}} 
         state=installed
+        update_cache=yes
       with_items:
         - git-core
         - python-dev
         - mongodb-server
         - build-essential
         - python-imaging
-        - lbxml2-dev
+        - libxml2-dev
         - libjpeg-dev
         - make
     #- name: Create app directory
