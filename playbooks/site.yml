@@ -29,9 +29,9 @@
         repo=git://github.com/quokkaproject/quokka.git
         dest=/app
     - name: Install PIP requirements
-      pip: requirements: /app/requirements.txt
+      pip: requirements=/app/requirements.txt
     - name: Install PIP requirements for test
-      pip: requirements: /app/requirements_test.txt
+      pip: requirements=/app/requirements_test.txt
     - name: Run tests
       command: make test
         chdir: /app
