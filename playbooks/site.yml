@@ -1,6 +1,6 @@
 ---
 - hosts: all
-  sudo true
+  sudo: true
   tasks:
     - name: download get-pip
       get_url: url=https://bootstrap.pypa.io/get-pip.py dest=/tmp/get-pip.py
