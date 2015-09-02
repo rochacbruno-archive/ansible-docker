@@ -27,8 +27,9 @@
     #    mode=0777
     - name: Clone repository
       git:
-        repo=git://github.com/quokkaproject/quokka.git
+        repo=https://github.com/quokkaproject/quokka.git
         dest=/app
+        accept_hostkey=yes
     - name: Install PIP requirements
       pip: requirements=/app/requirements.txt
     - name: Install PIP requirements for test
