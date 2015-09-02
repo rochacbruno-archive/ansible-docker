@@ -34,8 +34,8 @@
       pip: requirements=/app/requirements_test.txt
     - name: Run tests
       command: make test
-        chdir: /app
+        chdir=/app
     - name: Populate
       command: python manage.py populate
-        chdir: /app
+        chdir=/app
     
