@@ -20,6 +20,8 @@
         - libxml2-dev
         - libjpeg-dev
         - make
+    - name: Start mongodb
+      service: name=mongodb state=started 
     #- name: Create app directory
     #  file: 
     #    path=/app state
